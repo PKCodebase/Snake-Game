@@ -1,0 +1,128 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f1ea;
+  --panel: #fffdf8;
+  --grid: #ded7ca;
+  --snake: #1f6f50;
+  --head: #134c36;
+  --food: #d4553d;
+  --text: #1f2933;
+  --muted: #66717d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.panel {
+  width: min(100%, 560px);
+  padding: 20px;
+  border: 1px solid #d7d0c4;
+  background: var(--panel);
+}
+
+.hud,
+.actions,
+.controls-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.label,
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.value {
+  margin: 4px 0 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.actions,
+.controls {
+  margin-top: 16px;
+}
+
+button {
+  border: 1px solid #b8ae9c;
+  background: #f7f2e8;
+  color: var(--text);
+  padding: 10px 14px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 16px;
+  background: var(--grid);
+  border: 1px solid #d7d0c4;
+  aspect-ratio: 1;
+  touch-action: none;
+}
+
+.cell {
+  background: #fff;
+}
+
+.cell.snake {
+  background: var(--snake);
+}
+
+.cell.head {
+  background: var(--head);
+}
+
+.cell.food {
+  background: var(--food);
+}
+
+.controls {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+
+.hint {
+  margin-top: 16px;
+}
+
+@media (max-width: 640px) {
+  .panel {
+    padding: 16px;
+  }
+
+  .hud,
+  .actions {
+    flex-direction: column;
+  }
+
+  .controls-row {
+    width: 100%;
+  }
+
+  .controls button {
+    min-width: 84px;
+  }
+}
